@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="container">
+  <div>Блок 1</div>
+  <div>Блок 2</div>
+  <div>Блок 3</div>
+</div>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+</style>
+
+</body>
+</html>
