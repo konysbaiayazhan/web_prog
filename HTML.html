@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Қазақстан — біздің елім</title>
+
+  <style>
+
+    :root {
+      --kok: #0B8FB3;      /* көк түс */
+      --altyn: #FFC83D;    /* алтын-сары түс */
+      --mazmun: #1D2B36;   /* мәтін түсі */
+      --fon: #F6F9FB;      /* бет фоны */
+      --kartochka: #FFFFFF;
+      --syzyq: #D9E4EA;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --mazmun: #E8F1F5; --fon: #0F1A21; --kartochka: #172630; --syzyq: #2A3E4A; --kok: #35B7DB;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--fon);
+      color: var(--mazmun);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    header {
+      background: var(--kok);
+      padding-top: env(safe-area-inset-top, 0px);
+      position: sticky;      /* айналдырғанда да жоғарыда қалады */
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .logo { color: #fff; font-weight: 800; font-size: 22px; text-decoration: none; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav ul a { color: #fff; text-decoration: none; font-weight: 600; padding: 4px 0; border-bottom: 3px solid transparent; }
+    nav ul a:hover { border-bottom-color: var(--altyn); }
+
+    .hero {
+      background: var(--kok);
+      color: #fff;
+      text-align: center;
+      padding: 70px 20px 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: var(--altyn);
+      top: -70px; right: -50px;
+      opacity: .95;
+    }
+    .hero h1 { position: relative; font-size: clamp(36px, 7vw, 64px); margin: 0 0 12px; line-height: 1.1; }
+    .hero p { position: relative; max-width: 560px; margin: 0 auto 28px; font-size: 20px; }
+    .knopka {
+      position: relative;
+      display: inline-block;
+      background: var(--altyn);
+      color: #1D2B36;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .knopka:hover { background: #fff; }
+
+
+    main { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 50px 0 10px; }
+    h2 { font-size: 32px; margin: 0 0 12px; }
+    h2::after { content: ""; display: block; width: 60px; height: 5px; background: var(--altyn); margin-top: 8px; border-radius: 3px; }
+
+
+    .tor { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 20px; }
+    .kartochka { background: var(--kartochka); border: 2px solid var(--syzyq); border-top: 6px solid var(--altyn); border-radius: 14px; padding: 20px; }
+    .kartochka h3 { margin: 0 0 6px; font-size: 21px; }
+    .kartochka p { margin: 0; font-size: 16px; }
+
+
+    .kesteWrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: var(--kartochka); border-radius: 12px; overflow: hidden; }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--syzyq); }
+    th { background: var(--kok); color: #fff; }
+
+
+    form { background: var(--kartochka); border: 2px solid var(--syzyq); border-radius: 14px; padding: 22px; max-width: 520px; }
+    label { display: block; font-weight: 600; margin: 12px 0 4px; }
+    input, select, textarea {
+      width: 100%; padding: 10px 12px; font: inherit;
+      border: 2px solid var(--syzyq); border-radius: 8px;
+      background: var(--fon); color: var(--mazmun);
+    }
+    input:focus, select:focus, textarea:focus { outline: 3px solid var(--altyn); border-color: var(--kok); }
+    button { margin-top: 16px; font: inherit; font-weight: 700; background: var(--kok); color: #fff; border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
+    button:hover { background: #086d88; }
+
+    footer { margin-top: 60px; padding: 28px 20px calc(28px + env(safe-area-inset-bottom, 0px)); text-align: center; background: var(--kok); color: #fff; }
+    :focus-visible { outline: 3px solid var(--altyn); outline-offset: 2px; }
+
+    @media (max-width: 600px) {
+      body { font-size: 17px; }
+      .hero { padding: 50px 20px 70px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <nav>
+      <a class="logo" href="#basy">Қазақстан</a>
+      <ul>
+
+        <li><a href="#turaly">Ел туралы</a></li>
+        <li><a href="#jerler">Көрікті жерлер</a></li>
+        <li><a href="#derekter">Деректер</a></li>
+        <li><a href="#pikir">Пікір қалдыру</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero" id="basy">
+
+    <h1>Кең байтақ даланың елі</h1>
+    <p>Таулар, көлдер, шатқалдар және ашық дала — Қазақстанның ең әдемі жерлерімен танысыңыз.</p>
+    <a class="knopka" href="#jerler">Жерлерді көру</a>
+  </div>
+
+  <main>
+    <section id="turaly">
+      <h2>Ел туралы</h2>
+
+      <p>Қазақстан — Орталық Азиядағы ең үлкен ел және әлемдегі аумағы жағынан ең ірі елдердің бірі. Мұнда қарсы алатын қонақжай халық, бай тарих және әртүрлі табиғат бар.</p>
+      <p>Бір елдің ішінде далаларды, шөлдерді, қарағайлы ормандарды және қарлы тау шыңдарын көруге болады.</p>
+
+
+      <h3>Неге бару керек?</h3>
+      <ul>
+        <li>Табиғаты өте алуан түрлі</li>
+        <li>Дәстүрлі ұлттық тағамдар</li>
+        <li>Жылдың төрт мезгілінде де әдемі</li>
+      </ul>
+    </section>
+
+    <section id="jerler">
+      <h2>Көрікті жерлер</h2>
+      <p>Ең танымал төрт бағыт:</p>
+      <div class="tor">
+        <div class="kartochka">
+          <h3>Шарын шатқалы</h3>
+          <p>Алматы облысындағы қызыл-сарғыш жартастар мен әсем шатқал.</p>
+        </div>
+        <div class="kartochka">
+          <h3>Көлсай көлдері</h3>
+          <p>Тянь-Шань тауларындағы мөлдір көлдер тізбегі.</p>
+        </div>
+        <div class="kartochka">
+          <h3>Бурабай</h3>
+          <p>Қарағайлы орман, тастар мен көлдер орналасқан демалыс аймағы.</p>
+        </div>
+        <div class="kartochka">
+          <h3>Алтай</h3>
+          <p>Шығыс Қазақстандағы биік таулар мен таза өзендер.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="derekter">
+      <h2>Қысқаша деректер</h2>
+
+      <div class="kesteWrap">
+        <table>
+          <tr><th>Көрсеткіш</th><th>Мәні</th></tr>
+          <tr><td>Астанасы</td><td>Астана</td></tr>
+          <tr><td>Мемлекеттік тілі</td><td>Қазақ тілі</td></tr>
+          <tr><td>Аумағы</td><td>шамамен 2,7 млн км²</td></tr>
+          <tr><td>Ақша бірлігі</td><td>Теңге</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="pikir">
+      <h2>Пікір қалдыру</h2>
+      <p>Қай жерге бардыңыз немесе қайда барғыңыз келеді?</p>
+
+      <form onsubmit="event.preventDefault(); this.querySelector('.sag').textContent = 'Рақмет! Пікіріңіз қабылданды.'">
+        <label for="at">Атыңыз</label>
+        <input id="at" type="text" placeholder="Мысалы: Айдос" required>
+
+        <label for="jer">Ұнаған жер</label>
+        <select id="jer">
+          <option>Шарын шатқалы</option>
+          <option>Көлсай көлдері</option>
+          <option>Бурабай</option>
+          <option>Алтай</option>
+        </select>
+
+        <label for="mt">Пікіріңіз</label>
+        <textarea id="mt" rows="4" placeholder="Бірнеше сөз жазыңыз..."></textarea>
+
+        <button type="submit">Жіберу</button>
+        <p class="sag" role="status" style="margin-top:12px;font-weight:600"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p style="margin:0">Менің алғашқы HTML сайтым © 2026</p>
+  </footer>
+</body>
+</html>
